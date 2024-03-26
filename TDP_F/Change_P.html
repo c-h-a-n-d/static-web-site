@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head>
+<style>
+body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #24c3b6;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top :50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color :#fff;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.6s;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1,2em;
+    color: beige;
+    line-height: 57px;
+}
+.icon-close{
+    position: absolute;
+    top:0;
+    right:0;
+    width: 35px;
+    height: 35px;
+    background: #ffff;
+    font-size: 2em;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;   
+}
+.input-box input
+{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color:#fff;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box input:focus ~ label,
+.input-box input:valid ~ label,
+.input-box input.has-value ~ label {
+  top: -5px;
+}
+
+.input-box input:focus,
+.input-box input:valid,
+.input-box input.has-value {
+  border-bottom: 2px solid #24c3b6;
+}
+
+.input-box input:not(:focus):not(:valid):not(.has-value) {
+  border-bottom: 1px solid #ccc;
+}
+
+</style>
+    </head>
+    <body>
+
+        <div class="container">
+            <form id="change-password" class="inputdata">
+               <div class="input-box">
+                <span id="eye" onclick="toggle()" class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <input id="passwd" type="password" id="input-field" required>
+                <label>Password</label>
+               </div>
+            <div class="input-box">
+                <span id="eye1" onclick="toggle1()" class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <input  id="passwd1" type="password" id="input-field" required>
+                <label>Confirm Password</label>
+            </div>
+              <button onclick="verifyPassword()">Save Changes</button>
+            </form>
+          </div>
+<script>
+function verifyPassword() {
+ const newPassword = document.getElementById("new-password").value;
+ const confirmPassword = document.getElementById("confirm-password").value;
+if (newPassword != confirmPassword) {
+alert("Password mismatched");
+return false;
+}
+ return true;
+}
+</script> 
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script>
+  var state=false;
+  function toggle(){
+      if(state)
+      {
+          document.getElementById("passwd").setAttribute("type","password");
+          document.getElementById("eye").style.color="#fff";
+          state=false;
+      }
+      else
+      {
+          document.getElementById("passwd").setAttribute("type","text");
+          document.getElementById("eye").style.color="#5887ef";
+          state=true;
+      }
+  }
+</script>
+<script>
+   var state1=false;
+  function toggle1(){
+      if(state1)
+      {
+          document.getElementById("passwd1").setAttribute("type","password");
+          document.getElementById("eye").style.color="#fff";
+          state1=false;
+      }
+      else
+      {
+          document.getElementById("passwd1").setAttribute("type","text");
+          document.getElementById("eye1").style.color="#5887ef";
+          state1=true;
+      }
+  }
+</script>
+<script>
+const inputField = document.getElementById('input-field');
+
+inputField.addEventListener('input', function() {
+if (this.value.length > 0) {
+this.classList.add('has-value');
+}
+else {
+this.classList.remove('has-value');
+}
+});
+
+</script>
+  </body>
+</html>
+
+  

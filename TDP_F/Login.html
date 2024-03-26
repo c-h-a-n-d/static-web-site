@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet"  type="text/css" href="login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <a href="\Home_page.html" ><span class="icon-close"><ion-icon name="close-outline"></ion-icon></span></a>
+        <div class="form-box login">
+            <h3>Login</h3>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span id="eye" onclick="toggle()" class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input id="passwd" type="password">
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember Me</label>
+                    <a href="\Forget.html">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't Have an account?<a href="\register.html"  terget="_parent" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+            const wrapper  = document.querySelector('.wrapper');
+            const loginlink  = document.querySelector('.login-link');
+            const registerlink  = document.querySelector('.register-link');
+            registerlink.addEventListener('click',()=>{
+            wrapper.classList.add('active');
+            });
+
+            loginlink.addEventListener('click',()=>{
+            wrapper.classList.remove('active');
+            });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        var state=false;
+        function toggle(){
+            if(state)
+            {
+                document.getElementById("passwd").setAttribute("type","password");
+                document.getElementById("eye").style.color="#fff";
+                state=false;
+            }
+            else
+            {
+                document.getElementById("passwd").setAttribute("type","text");
+                document.getElementById("eye").style.color="#5887ef";
+                state=true;
+            }
+        }
+      </script>
+</body>
+</html>
